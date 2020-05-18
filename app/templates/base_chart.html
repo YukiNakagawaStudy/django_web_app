@@ -1,0 +1,32 @@
+<!doctype html>
+{% load i18n static %}
+<html lang=ja>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equic="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block page_title %}{% endblock %}</title>
+
+    {# --- css ---#}
+    <link ref="stylesheet" href="{% static 'css/semantic.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <style type="text/css">
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="ui container">
+      {% block content %}{% endblock %}
+    </div>
+    {# --- js --- #}
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/Chart.js' %}"></script>
+    <script src="{% static 'js/chartjs-plugin-streaming.js' %}"></script>
+    <script src="{% static 'js/pnn-chart.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

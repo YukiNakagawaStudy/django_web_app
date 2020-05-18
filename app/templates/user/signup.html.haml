@@ -1,0 +1,35 @@
+- extends 'base.html'
+- load static
+- block content
+
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12{style:"margin: 5mm; ", align:"center"}
+        %h4{style:"font-size: 1.1em;"} ユーザー登録
+        %form{method:"POST", action:"{% url 'sign_up' %}", class: "custom-input-group"}
+            - csrf_token
+            %table
+                %tr
+                    %td.text-right #{form.username.label_tag}
+                    %td #{form.username}
+                - if form.username.errors
+                    %tr
+                        %td{colspan:"2"} #{form.username.errors}
+                %tr
+                    %td.text-right #{form.email.label_tag}
+                    %td #{form.email}
+                - if form.email.errors
+                    %tr
+                        %td{colspan:"2"} #{form.email.errors}
+                %tr
+                    %td.text-right #{form.password1.label_tag}
+                    %td #{form.password1}
+                - if form.password1.errors
+                    %tr
+                        %td{colspan:"2"} #{form.password1.errors}
+                %tr
+                    %td.text-right #{form.password2.label_tag}
+                    %td #{form.password2}
+                - if form.password2.errors
+                    %tr
+                        %td{colspan:"2"} #{form.password2.errors}
+            %button{type:"submit", style:"font-size: 1.2em;margin: 5px;"} 登録
+                
